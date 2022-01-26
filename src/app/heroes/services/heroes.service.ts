@@ -13,10 +13,15 @@ export class HeroesService {
   constructor( private http: HttpClient ) { }
 
   getHeroes(): Observable<Heroe[]> {
-    return this.http.get<Heroe[]>(`http://localhost:3000/heroes`)
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes`)
   }
 
   getHeroPorId( id : string): Observable<Heroe> {
-    return this.http.get<Heroe>(`http://localhost:3000/heroes/${ id }`)
+    return this.http.get<Heroe>(`${this.baseUrl}/heroes/${ id }`)
+  }
+
+  getsugerencias( termino : string): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(`${this.baseUrl}/heroes/?q=${ termino }&_limit=5`)
   }
 }
+

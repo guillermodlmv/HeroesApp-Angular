@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
-const routes:  Routes = [
+const routes: Routes = [
   {
     path: '',
     children: [
       {
         path: 'login',
-        component: LoginComponent,
+        component: LoginComponent
       },
       {
-        path: 'register',
-        component: RegisterComponent
+        path: 'registro',
+        component: RegistroComponent
       },
       {
         path: '**',
@@ -24,8 +23,8 @@ const routes:  Routes = [
   }
 ]
 
+
 @NgModule({
-  declarations: [],
   imports: [
     RouterModule.forChild( routes )
   ],
